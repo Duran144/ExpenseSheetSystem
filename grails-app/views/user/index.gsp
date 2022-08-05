@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome to Grails</title>
+        <title>Expense Sheet System</title>
         <style>
             .form, .text-field, .submit{
                 margin: 20px;
+                background-color: lightblue;
             }
         </style>
     </head>

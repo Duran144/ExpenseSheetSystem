@@ -13,6 +13,7 @@
     <div class="user-panel">
         Welcome ${user.firstName}!
     </div>
+
 </body>
 
 <html>
