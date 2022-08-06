@@ -3,7 +3,7 @@ package com.i3zone.demo
 import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification
 
-class AccountControllerSpec extends Specification implements ControllerUnitTest<AccountController> {
+class TransactionControllerSpec extends Specification implements ControllerUnitTest<TransactionController> {
 
     def setup() {
     }

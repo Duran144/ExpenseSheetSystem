@@ -3,11 +3,12 @@ package com.i3zone.demo
 class UserController {
     static scaffold = User
 
-    def index() { }
+    UserService _userService
 
-    def save(){
-        def user = new User(params)
-        user.save()
-        render (view: "user", model: [user: user])
+    def index(Integer max)
+    {
+        params.max = Math.min(max ?: 10, 100)
+        respond User.list(params), model:[userCount: User.count()]
     }
+
 }
