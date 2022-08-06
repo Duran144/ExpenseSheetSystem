@@ -1,6 +1,7 @@
 package com.i3zone.demo
 
 class UserController {
+    static scaffold = User
 
     def index() { }
 
