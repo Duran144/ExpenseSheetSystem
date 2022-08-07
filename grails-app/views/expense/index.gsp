@@ -24,24 +24,6 @@
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
 
-
-
-                        <%-- <tabel>
-                                <tr>
-                                <th>Date</th>
-                                <th>Description</th>
-                                <th>Amount</th>
-                                <th>Running Balance</th>
-                                </tr>
-                                <g:each var="expense" in="${user.expense}">
-                                    <tr>
-                                        <td>${expense.dateCreated}</td>
-                                        <td>${expense.description}</td>
-                                        <td>${expense.amount}</td>
-                                        <td>${expense.runningBalance}</td>
-                                    </tr>
-                                </g:each>
-                              </tabel>--%>
                     <f:table collection="${expenseList}" />
 
                     <g:if test="${expenseCount > params.int('max')}">

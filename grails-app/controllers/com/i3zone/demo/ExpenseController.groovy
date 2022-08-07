@@ -1,12 +1,18 @@
 package com.i3zone.demo
 
+import grails.config.Config
+import grails.core.support.GrailsConfigurationAware
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
-class ExpenseController {
+class ExpenseController implements GrailsConfigurationAware{
 
     ExpenseService expenseService
     UserService userService
+    ConvertCurrencyService convertCurrencyService
+
+    String csvMimeType
+    String encoding
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -95,6 +101,34 @@ class ExpenseController {
         respond user
     }
 
+    def exportCSV(Long id){
+
+        // get selected user's statement
+        def user = getUserStatement(id)
+
+        // set csv filename
+        final String filename = 'statement.csv'
+
+        // iterate through the user's expenses then cast's it to List of type String
+        def lines = user.expense.collect{[it.dateCreated, it.description, it.amount, it.runningBalance].join(';')}as List<String>
+
+
+        def outs = response.outputStream
+
+
+        response.status = OK.value()
+        response.contentType = "${csvMimeType};charset=${encoding}";
+        response.setHeader "Content-disposition", "attacthment; filename=${filename}"
+
+        //
+        lines.each{String line ->
+            outs << "${line}\n"
+        }
+
+        outs.flush()
+        outs.close()
+    }
+
     // returns the selected user's expense statement
     protected getUserStatement(Long id){
 
@@ -107,18 +141,21 @@ class ExpenseController {
         // loops through each expense the user created
         for(expense in user.expense) {
 
-            // updates the current expense running balance
+            // updates the current expense's running balance
             expense.runningBalance = runningbalance - expense.amount
 
-            //
+            // updates the user's running balance
             runningbalance = expense.runningBalance
 
             // convert expense amount to USD
+//            expense.convertedAmount = convertCurrencyService.convertZARToUSD(expense.amount)
 
         }
 
         return user
     }
+
+
 
     protected void notFound() {
         request.withFormat {
@@ -128,5 +165,14 @@ class ExpenseController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    @Override
+    void setConfiguration(Config con){
+        // set file type to csv
+        csvMimeType = con.getProperty('grails.mime.types.csv', String, 'text/csv')
+
+        // set csv files encoding to UTF-8
+        encoding = con.getProperty('grails.converters.encoding', String, 'UTF-8')
     }
 }

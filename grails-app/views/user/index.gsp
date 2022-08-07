@@ -23,20 +23,21 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <table>
+                    <table class="rounded">
                         <thead>
                             <tr>
-                                <td>Name</td>
-                                <td> Initial Bank Balance</td>
+                                <td class="text-center">Name</td>
+                                <td class="text-center">Starting Bank Balance</td>
+                                <td class="text-center">Expenses</td>
                                 <td></td>
                             </tr>
                         </thead>
                         <tbody>
                             <g:each var="user" in="${userList}">
                                 <tr>
-                                    <td>${user.name}</td>
-                                    <td>${user.startingBalance}</td>
-                                    <td> <g:link controller="expense" action="statement" id="${user.id}" >[View Statement]</g:link></td>
+                                    <td class="text-center">${user.name}</td>
+                                    <td class="text-center">${user.startingBalance}</td>
+                                    <td class="text-center"> <g:link controller="expense" action="statement" id="${user.id}" >[View Statement]</g:link></td>
                                 </tr>
                             </g:each>
                         </tbody>
