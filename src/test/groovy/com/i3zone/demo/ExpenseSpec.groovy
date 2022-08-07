@@ -1,9 +1,9 @@
 package com.i3zone.demo
 
-import grails.testing.web.controllers.ControllerUnitTest
+import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
-class TransactionControllerSpec extends Specification implements ControllerUnitTest<TransactionController> {
+class ExpenseSpec extends Specification implements DomainUnitTest<Expense> {
 
     def setup() {
     }

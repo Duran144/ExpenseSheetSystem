@@ -24,7 +24,27 @@
                     <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:display bean="user" />
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Starting Balance</th>
+                            <th>Expense</th>
+                            <th></th>
+                        </tr>
+                        <g:each var="prop" in="${user}">
+                                    <tr>
+                                        <td>${prop.name}</td>
+                                        <td>${prop.startingBalance}</td>
+                                        <g:if test="${expense == null}">
+                                            <td><g:link class="create" controller="expense" action="create" resource="${expense}">Add Expense</g:link></td>
+                                        </g:if>
+                                        <g:else>
+                                             <td><g:link class="show" controller="expense" action="statement" resource="${expense}">View Statement</g:link></td>
+                                        </g:else>
+                                    </tr>
+                        </g:each>
+                    </table>
+
                     <g:form resource="${this.user}" method="DELETE">
                         <fieldset class="buttons">
                             <g:link class="edit" action="edit" resource="${this.user}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

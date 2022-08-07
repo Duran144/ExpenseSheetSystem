@@ -4,7 +4,7 @@ class User {
     String name
     Double startingBalance
 
-    static hasMany = [transaction: Transaction]
+    static hasMany = [expense: Expense]
 
     static constraints = {
     }
