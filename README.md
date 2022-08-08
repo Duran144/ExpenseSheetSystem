@@ -4,14 +4,14 @@ A basic expense system that keeps track of all the transactions the user makes
 ## Table of Contents
 
 - [Overview](#overview)
-  - [Project Description](#project description)
+  - [Project Description](#projectdescription)
   - [Technologies](#technologies)
   - [Optimization](#optimization)
   
 - [Requirements](#requirements) 
   - [Installation](#installation)
-  - [Run app](#run app)
-  - [Run tests](#run tests)
+  - [Run app](#runapp)
+  - [Run tests](#runtests)
 
 
 
