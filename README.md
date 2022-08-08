@@ -48,8 +48,8 @@ To get started do the following:
 or
 
 Clone the Git repository:
-- git clone https://github.com/Duran144/ExpenseSheetSystem.git
 
+    git clone https://github.com/Duran144/ExpenseSheetSystem.git
 
 ## Run App
 There are two ways to run the app
