@@ -11,7 +11,7 @@ class ConvertCurrencyServiceSpec extends Specification implements ServiceUnitTes
     def cleanup() {
     }
 
-    void "test something"() {
+    void ConvertCurrencyService() {
         expect:"fix me"
             true == false
     }

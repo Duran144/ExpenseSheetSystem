@@ -2,9 +2,9 @@ package com.i3zone.demo
 
 class Expense {
     Date dateCreated
-    double amount
+    Double amount
     Double convertedAmount
-    double runningBalance = 0.0
+    Double runningBalance = 0.0
     String description
 
     static transients = ['runningBalance', 'convertedAmount']
@@ -12,5 +12,11 @@ class Expense {
     static belongsTo = [user: User]
 
     static constraints = {
+        description blank: false
+        amount blank: false
+    }
+
+    String toString() {
+        return description+" - "+amount
     }
 }

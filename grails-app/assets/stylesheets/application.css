@@ -18,7 +18,97 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: white;
+}
+
+.footer{
+    display: flex;
+    color: black;
+    margin: 0 1rem;
+    background-color: #fff;
+}
+
+#create-user{
+    margin: 0 auto;
+}
+
+.c-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px 15px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.form-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    padding: 20px;
+}
+
+.fieldcontain label{
+    width: 70%;
+    text-align: left;
+}
+
+.fieldcontain input[type="text"]{
+    width: 100%;
+    padding: 15px 10px;
+    border: 1px solid #3d3935;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #3d3935;
+    outline: 0;
+}
+
+.fieldcontain input[type="number decimal"]{
+    width: 100%;
+    padding: 15px 10px;
+    border: 1px solid #3d3935;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #3d3935;
+    outline: 0;
+}
+
+.c-form-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(252, 186, 3);
+  color: #ffff;
+  font-size: 1.125rem;
+  letter-spacing: 2px;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.navbar-nav{
+    justify-content: flex-end;
+    margin-right: 1rem;
+}
+
+.navbar-nav > li{
+    margin: 0 1rem;
+}
+
 .navbar-nav > li > a{
+    font-size: 1.5em;
     text-decoration: none;
     color: black;
 }
@@ -41,7 +131,7 @@
     height: 2px;
     bottom: -14px;
     left: 0;
-    background-color: #0087ca;
+    background-color: rgb(252, 186, 3);
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -59,4 +149,29 @@
 
 .home-section h1{
     color: red;
+}
+
+.footer{
+    display: flex;
+    color: white;
+    margin: .5rem 2rem;
+    background-color: gray;
+}
+
+.footer img{
+    margin: 0 auto;
+}
+
+.img-wrapper{
+    display: flex;
+    align-items: flex-end;
+}
+
+.img-container{
+    display: flex;
+    margin: .5rem;
+}
+
+td > a{
+    text-decoration: none;
 }

@@ -103,21 +103,20 @@ class ExpenseController implements GrailsConfigurationAware{
 
     def exportCSV(Long id){
 
-        // get selected user's statement
+        // get current user's statement so their properties can be traversed through
         def user = getUserStatement(id)
 
-        // set csv filename
         final String filename = 'statement.csv'
 
-        // iterate through the user's expenses then cast's it to List of type String
-        def lines = user.expense.collect{[it.dateCreated, it.description, it.amount, it.runningBalance].join(';')}as List<String>
+        // map user's expenses to a list for access to List methods
+        def lines = user.expense.collect{[it.dateCreated, it.description, it.amount, it.convertedAmount,it.runningBalance].join(';')}as List<String>
 
-
+        //
         def outs = response.outputStream
 
 
         response.status = OK.value()
-        response.contentType = "${csvMimeType};charset=${encoding}";
+        response.contentType = "${csvMimeType};charset=${encoding}"
         response.setHeader "Content-disposition", "attacthment; filename=${filename}"
 
         //
@@ -148,7 +147,7 @@ class ExpenseController implements GrailsConfigurationAware{
             runningbalance = expense.runningBalance
 
             // convert expense amount to USD
-//            expense.convertedAmount = convertCurrencyService.convertZARToUSD(expense.amount)
+            expense.convertedAmount = convertCurrencyService.convertZARToUSD(expense.amount)
 
         }
 
