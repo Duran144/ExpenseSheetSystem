@@ -15,7 +15,7 @@
         </g:if>
 
         <div class="d-flex align-items-center flex-column text-align-center">
-            <table class="col-md-6">
+            <table class="col-md-8">
                 <tr>
                     <th class="text-center">Date</th>
                     <th class="text-center">Description</th>
@@ -35,11 +35,51 @@
                 </g:each>
             </table>
             <div>
-                <button class="btn btn-primary">
-                    <g:link controller="expense" action="exportCSV" id="${user.id}" class="btn btn-primary">Export to CSV</g:link>
+                <button class="c-form-btn">
+                    <g:link controller="expense" action="exportCSV" id="${user.id}">Export to CSV</g:link>
                 </button>
             </div>
         </div>
+    </div>
+
+    <div class="footer-container">
+        <footer class="footer" role="contentinfo">
+            <div class="img-wrapper">
+                <div class="img-container">
+                    <a href="http://guides.grails.org" target="_blank">
+                        <asset:image src="advancedgrails.svg" alt="Grails Guides" size="20"/>
+                    </a>
+                </div>
+                <div class="sub-text">
+                    <strong class="centered"><a href="http://guides.grails.org" target="_blank">Grails Guides</a></strong>
+                    <p>Building your first Grails app? Looking to add security, or create a Single-Page-App? Check out the <a href="http://guides.grails.org" target="_blank">Grails Guides</a> for step-by-step tutorials.</p>
+                </div>
+            </div>
+    
+            <div class="img-wrapper">
+                <div class="img-container">
+                    <a href="http://docs.grails.org" target="_blank">
+                        <asset:image src="documentation.svg" alt="Grails Documentation" class="float-left"/>
+                    </a>
+                </div>
+                <div class="sub-text">
+                    <strong class="centered"><a href="http://docs.grails.org" target="_blank">Documentation</a></strong>
+                    <p>Ready to dig in? You can find in-depth documentation for all the features of Grails in the <a href="http://docs.grails.org" target="_blank">User Guide</a>.</p>
+                </div>
+            </div>
+    
+            <div class="img-wrapper">
+                <div class="img-container">
+                    <a href="https://slack.grails.org" target="_blank">
+                        <asset:image src="slack.svg" alt="Grails Slack" class="float-left"/>
+                    </a>
+                </div>
+                <div class="sub-text">
+                    <strong class="centered"><a href="https://slack.grails.org" target="_blank">Join the Community</a></strong>
+                    <p>Get feedback and share your experience with other Grails developers in the community <a href="https://slack.grails.org" target="_blank">Slack channel</a>.</p>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>

@@ -14,6 +14,7 @@
 *= require_self
 */
 
+
 *{
     box-sizing: border-box;
 }
@@ -22,11 +23,117 @@ body{
     background-color: white;
 }
 
-.footer{
-    display: flex;
+thead{
+    background-color: #feb672;
+}
+
+tbody{
+}
+
+th:hover{
+    background: none;
+}
+
+tr{
+    font-size: 1.2em;
+}
+
+td{
+    padding: 1rem;
+    vertical-align:middle;
+}
+
+td > a{
+    text-decoration: none;
     color: black;
-    margin: 0 1rem;
-    background-color: #fff;
+}
+
+select{
+    padding: 15px 10px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #3d3935;
+}
+
+.content{
+    margin-bottom: 5rem;
+}
+
+.content > h1{
+    border-bottom: none;
+}
+
+.user-table-row > th{
+    text-align: center;
+}
+
+.user-table-row > td{
+    text-align: center;
+}
+
+.edit-btn{
+    display: inline-block;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    color: #fff;
+    background-color:#feb672;
+    border-color:#feb672;
+    width: 100%;
+}
+
+.edit-btn:hover{
+    color: white;
+}
+
+.add-btn{
+    display: inline-block;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    color: #fff;
+    background-color:#feb672;
+    border-color:#feb672;
+    width: 60%;
+}
+
+.add-btn:hover{
+    color: white;
+}
+
+.delete-btn{
+    display: inline-block;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    color: #fff;
+    background-color:#feb672;
+    border-color:#feb672;
+    width: 100%;
 }
 
 #create-user{
@@ -89,13 +196,18 @@ body{
   padding: 15px;
   border: none;
   border-radius: 4px;
-  background-color: rgb(252, 186, 3);
+  background-color: #feb672;
   color: #ffff;
   font-size: 1.125rem;
   letter-spacing: 2px;
   text-align: center;
   outline: none;
   cursor: pointer;
+}
+
+.c-form-btn > a{
+    text-decoration: none;
+    color: white;
 }
 
 .navbar-nav{
@@ -151,10 +263,17 @@ body{
     color: red;
 }
 
+.footer-container{
+    margin-top: 5rem;
+}
+
 .footer{
     display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 0;
     color: white;
-    margin: .5rem 2rem;
+    margin: 0 0.2rem 0 0.2rem;
     background-color: gray;
 }
 
@@ -164,7 +283,6 @@ body{
 
 .img-wrapper{
     display: flex;
-    align-items: flex-end;
 }
 
 .img-container{
@@ -172,6 +290,6 @@ body{
     margin: .5rem;
 }
 
-td > a{
-    text-decoration: none;
+.sub-text{
+    margin: 0.2rem 0.2rem;
 }
