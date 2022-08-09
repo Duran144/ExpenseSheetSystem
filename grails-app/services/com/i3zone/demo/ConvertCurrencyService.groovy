@@ -14,29 +14,17 @@ import java.net.http.HttpResponse
 
 class ConvertCurrencyService{
 
-    String fixerioUrl
-    String access_key
-    String from
-    String to
-
     def convertZARToUSD(double zar) {
 
-        // Setting fixio latest rates endpoint for opening with URL
-        String fixerioUrl = "https://api.apilayer.com/fixer/latest?apikey=0I0UHTXSBTltwkcqo6pWv6l12z6mIuIV&symbols=USD,ZAR"
+        URL url = new URL("https://api.apilayer.com/fixer/latest?apikey=0I0UHTXSBTltwkcqo6pWv6l12z6mIuIV&symbols=USD,ZAR")
 
-        // Opening connection to fixerioUrl so that it can be used for a streamreader
-        URL url = new URL(fixerioUrl)
+        BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()))
 
-        InputStream urlStream = url.openStream()
+        JsonSlurper slurper = new JsonSlurper()
 
-        //
-        BufferedReader reader = new BufferedReader(new InputStreamReader(urlStream))
+        Object result = slurper.parse(reader)
 
-        //
-        JsonSlurper jsonSlurper = new JsonSlurper()
-
-        //
-        Object result = jsonSlurper.parse(reader)
+        reader.close()
 
         return (zar / result.rates.ZAR) * result.rates.USD
     }

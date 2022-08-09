@@ -5,7 +5,6 @@ A basic expense system that keeps track of all the transactions the user makes
 
 - [Overview](#overview)
   - [Project Description](#projectdescription)
-  - [Technologies](#technologies)
   - [Optimization](#optimization)
   
 - [Requirements](#requirements) 
@@ -24,15 +23,12 @@ This is a very basic expense sheet system that tracks the users's expenses.
 - The app allows users to export their expenses information to a CSV file.
 - The app also has a currency converter feature.   
 
-### Technologies
-This project is build using
-- Grails
-- Groovy
 
 ### Optimization 
 Things to consider when 10k users are using the website.
 - Add Authentication and Authorization
-- 
+- Use a CDN
+- Regularlyc reate backups of website
 
 
 ### Requirements

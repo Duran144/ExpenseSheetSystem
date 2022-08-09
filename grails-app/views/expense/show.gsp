@@ -14,13 +14,26 @@
                     <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:display bean="expense" property=""/>
-                    <g:form resource="${this.expense}" method="DELETE">
-                        <fieldset class="buttons">
-                            <g:link class="edit" action="edit" resource="${this.expense}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                            <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                        </fieldset>
-                    </g:form>
+                    <table class="rounded user-table">
+                        <tr class="user-table-row">
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <g:each var="prop" in="${expense}">
+                            <tr class="user-table-row">
+                                <td>${prop.description}</td>
+                                <td>${prop.amount}</td>
+                                <td>
+                                    <g:link class="edit edit-btn" action="edit" resource="${this.expense}">Edit</g:link>
+                                </td>
+                                <td>
+                                    <input class="delete delete-btn" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                </td>
+                            </tr>
+                        </g:each>
+                    </table>
                 </div>
             </section>
         </div>

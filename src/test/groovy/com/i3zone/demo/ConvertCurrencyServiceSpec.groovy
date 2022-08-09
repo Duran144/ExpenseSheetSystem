@@ -12,7 +12,14 @@ class ConvertCurrencyServiceSpec extends Specification implements ServiceUnitTes
     }
 
     void ConvertCurrencyService() {
-        expect:"fix me"
-            true == false
+        given: 'a user'
+            def user = new User(name: "Test", startingBankBalance: 100)
+            def expense = new Expense(description: "water bill", amount: 10, user: user)
+
+        when: 'convertCurrency is called'
+            def convertedAmount = service.convertZARToUSD(expense.amount)
+
+        then: 'a USD equivalent must be returned'
+            assert convertedAmount > 0.0
     }
 }

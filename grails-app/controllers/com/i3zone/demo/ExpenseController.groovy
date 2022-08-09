@@ -103,50 +103,39 @@ class ExpenseController implements GrailsConfigurationAware{
 
     def exportCSV(Long id){
 
-        // get current user's statement so their properties can be traversed through
         def user = getUserStatement(id)
 
         final String filename = 'statement.csv'
 
-        // map user's expenses to a list for access to List methods
-        def lines = user.expense.collect{[it.dateCreated, it.description, it.amount, it.convertedAmount,it.runningBalance].join(';')}as List<String>
+        def rows = user.expense.collect{[it.dateCreated, it.description, it.amount, it.convertedAmount,it.runningBalance].join(';')}as List<String>
 
-        //
-        def outs = response.outputStream
+        def stream = response.outputStream
 
 
         response.status = OK.value()
         response.contentType = "${csvMimeType};charset=${encoding}"
         response.setHeader "Content-disposition", "attacthment; filename=${filename}"
 
-        //
-        lines.each{String line ->
-            outs << "${line}\n"
+        rows.each{String line ->
+            stream << "${line}\n"
         }
 
-        outs.flush()
-        outs.close()
+        stream.flush()
+        stream.close()
     }
 
-    // returns the selected user's expense statement
     protected getUserStatement(Long id){
 
-        // return instance of current user
         def user = userService.get(id)
 
-        // sets the user's expense balance to their initial balance
         def runningbalance = user.startingBalance
 
-        // loops through each expense the user created
         for(expense in user.expense) {
 
-            // updates the current expense's running balance
             expense.runningBalance = runningbalance - expense.amount
 
-            // updates the user's running balance
             runningbalance = expense.runningBalance
 
-            // convert expense amount to USD
             expense.convertedAmount = convertCurrencyService.convertZARToUSD(expense.amount)
 
         }
