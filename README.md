@@ -28,7 +28,7 @@ This is a very basic expense sheet system that tracks the users's expenses.
 Things to consider when 10k users are using the website.
 - Add Authentication and Authorization
 - Use a CDN
-- Regularlyc reate backups of website
+- Regularly create backups of website
 
 
 ### Requirements
